@@ -22,7 +22,6 @@
             width: 100%;
             display: flex;
             justify-content: center;
-            align-items: center;
             padding: 4rem 2rem; /* Generous padding for all screen sizes */
             border-bottom: 1px solid #1a1a1a; /* Subtle separator */
         }
@@ -34,6 +33,12 @@
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        /* This new rule gracefully handles vertical centering. */
+        /* It centers content when it fits, and aligns top when it overflows. */
+        .slide > .fade-in {
+            margin-top: auto;
+            margin-bottom: auto;
         }
         /* The state when the element is visible */
         .fade-in.visible {
