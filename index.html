@@ -7,229 +7,234 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .slide {
-            min-width: 100%;
-            transition: opacity 0.6s ease-in-out;
+        /* Base styles for a smooth experience */
+        html {
+            scroll-behavior: smooth;
         }
-        .slides-container { display: flex; }
-        .slide-content {
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #000;
+            color: #fff;
+        }
+        /* Each slide is a full-screen section */
+        .slide {
+            min-height: 100vh;
+            width: 100%;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            height: 100vh;
-            padding: 2rem;
+            padding: 4rem 2rem; /* Generous padding for all screen sizes */
+            border-bottom: 1px solid #1a1a1a; /* Subtle separator */
         }
-        .fade-in { animation: fadeIn 1.2s ease-in-out; }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .slide:last-child {
+            border-bottom: none;
         }
-        .flywheel-step {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
+        /* Animation for content fading in */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        /* The state when the element is visible */
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Styling for the navigation dots */
+        .nav-dot.active {
+            background-color: #22d3ee; /* cyan-400 */
+            transform: scale(1.5);
         }
     </style>
 </head>
-<body class="bg-black text-white overflow-hidden">
+<body class="bg-black text-white">
 
-    <div id="slideshow" class="relative w-full h-screen">
-        <div class="slides-container w-full h-full">
+    <main>
+        <!-- Slide 1: The Thesis -->
+        <section id="slide-0" class="slide">
+            <div class="fade-in max-w-4xl text-center">
+                <h1 class="text-5xl md:text-8xl font-black text-white leading-tight">The Internet Has No Immune System.</h1>
+                <p class="mt-6 text-xl md:text-2xl text-gray-400">We are building it, together.</p>
+            </div>
+        </section>
 
-            <!-- Slide 1: The Thesis -->
-            <div class="slide absolute w-full h-full">
-                <div class="slide-content bg-black">
-                    <div class="fade-in max-w-4xl">
-                        <h1 class="text-5xl md:text-8xl font-black text-white leading-tight">The Internet Has No Immune System.</h1>
-                        <p class="mt-6 text-xl md:text-2xl text-gray-400">We are building it, together.</p>
+        <!-- Slide 2: The Pathogen -->
+        <section id="slide-1" class="slide">
+            <div class="fade-in max-w-4xl text-center">
+                <h2 class="text-4xl md:text-6xl font-bold text-red-500">Trust is under systematic attack.</h2>
+                <p class="mt-8 text-lg md:text-xl text-gray-300">The current web rewards scale over substance, creating a breeding ground for the pathogens of the digital age:</p>
+                <div class="mt-8 grid md:grid-cols-3 gap-6 text-left">
+                    <div class="bg-gray-900 p-6 rounded-lg"><h3 class="font-bold text-white">Disinformation</h3><p class="text-gray-400 mt-2">Weaponized falsehoods that erode social cohesion.</p></div>
+                    <div class="bg-gray-900 p-6 rounded-lg"><h3 class="font-bold text-white">AI Deepfakes</h3><p class="text-gray-400 mt-2">Synthetic media that makes reality negotiable.</p></div>
+                    <div class="bg-gray-900 p-6 rounded-lg"><h3 class="font-bold text-white">Context Collapse</h3><p class="text-gray-400 mt-2">Information stripped of its original meaning, fueling polarization.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: The Cure -->
+        <section id="slide-2" class="slide">
+            <div class="fade-in max-w-4xl text-center">
+                <h2 class="text-4xl md:text-6xl font-bold text-cyan-400">The cure is Verifiable Context.</h2>
+                <p class="mt-8 text-lg md:text-xl text-gray-300">An immune response requires specialized cells to identify threats. For the internet, these cells are small, expert-led communities.</p>
+                <p class="mt-6 text-2xl md:text-3xl font-bold text-white">We are building the economic engine to cultivate these high-integrity communities at scale.</p>
+            </div>
+        </section>
+
+        <!-- Slide 4: How It Works: The Flywheel of Trust -->
+        <section id="slide-3" class="slide">
+            <div class="fade-in max-w-5xl text-center">
+                <h2 class="text-4xl md:text-6xl font-bold">The Protocol: A Flywheel of Trust</h2>
+                <p class="mt-4 text-lg md:text-xl text-gray-400">A self-sustaining ecosystem that creates, structures, and funds verifiable context.</p>
+                <div class="mt-12 w-full flex flex-col md:flex-row items-center justify-center gap-8 md:gap-4">
+                    <!-- Step 1: Verify -->
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-24 h-24 rounded-full bg-gray-900 border-2 border-cyan-400 flex items-center justify-center"><svg class="w-12 h-12 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+                        <h3 class="mt-4 text-xl font-bold">1. Verify</h3>
+                        <p class="mt-2 text-gray-400 max-w-xs">Expert communities are rewarded for fact-checking, labeling, and adding nuanced context.</p>
+                    </div>
+                    <div class="text-gray-600 text-4xl hidden md:block mx-4">&rarr;</div>
+                    <!-- Step 2: Structure -->
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-24 h-24 rounded-full bg-gray-900 border-2 border-cyan-400 flex items-center justify-center"><svg class="w-12 h-12 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg></div>
+                        <h3 class="mt-4 text-xl font-bold">2. Structure</h3>
+                        <p class="mt-2 text-gray-400 max-w-xs">This activity is structured into a real-time, transparent, and auditable data layer.</p>
+                    </div>
+                    <div class="text-gray-600 text-4xl hidden md:block mx-4">&rarr;</div>
+                    <!-- Step 3: Fund -->
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-24 h-24 rounded-full bg-gray-900 border-2 border-cyan-400 flex items-center justify-center"><svg class="w-12 h-12 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg></div>
+                        <h3 class="mt-4 text-xl font-bold">3. Fund</h3>
+                        <p class="mt-2 text-gray-400 max-w-xs">Revenue from AI companies and platforms flows back to fund and grow the expert communities.</p>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Slide 2: The Pathogen -->
-            <div class="slide absolute w-full h-full opacity-0">
-                <div class="slide-content bg-black">
-                    <div class="fade-in max-w-4xl">
-                        <h2 class="text-4xl md:text-6xl font-bold text-red-500">Trust is under systematic attack.</h2>
-                        <p class="mt-8 text-lg md:text-xl text-gray-300">The current web rewards scale over substance. This has created the perfect breeding ground for the pathogens of the digital age:</p>
-                        <div class="mt-8 grid md:grid-cols-3 gap-8 text-left">
-                            <div class="bg-gray-900 p-6 rounded-lg"><h3 class="font-bold text-white">Disinformation</h3><p class="text-gray-400">Weaponized falsehoods that erode social cohesion.</p></div>
-                            <div class="bg-gray-900 p-6 rounded-lg"><h3 class="font-bold text-white">AI Deepfakes</h3><p class="text-gray-400">Synthetic media that makes reality negotiable.</p></div>
-                            <div class="bg-gray-900 p-6 rounded-lg"><h3 class="font-bold text-white">Context Collapse</h3><p class="text-gray-400">Information stripped of its original meaning, fueling polarization.</p></div>
-                        </div>
-                    </div>
+        <!-- Slide 5: The Economic Engine -->
+        <section id="slide-4" class="slide">
+            <div class="fade-in max-w-5xl text-center">
+                <h2 class="text-4xl md:text-6xl font-bold">Capitalizing on the Internet's Economic Asymmetry</h2>
+                <p class="mt-4 text-lg md:text-xl text-gray-400">A fundamental inefficiency exists between where value is monetized and where expertise resides.</p>
+                <div class="mt-10 grid md:grid-cols-2 gap-8 w-full">
+                    <div class="bg-gray-900 p-8 rounded-lg text-left"><h3 class="text-xl font-bold text-gray-400">Monetized Attention</h3><p class="text-6xl font-black text-white mt-2">~$68</p><p class="mt-2 text-gray-300">Is the average ad revenue per user (ARPU) in North America. This is where digital value is captured.</p></div>
+                    <div class="bg-gray-900 p-8 rounded-lg text-left"><h3 class="text-xl font-bold text-gray-400">Undervalued Expertise</h3><p class="text-6xl font-black text-white mt-2">$8-15<span class="text-4xl">/hr</span></p><p class="mt-2 text-gray-300">Is the rate for elite, multilingual expertise from global talent hubs like India. This is where trust can be built.</p></div>
+                </div>
+                <p class="mt-10 text-xl text-cyan-400 font-semibold">Our protocol creates a new global market, arbitraging the gap between where value is captured and where trust can be built.</p>
+            </div>
+        </section>
+
+        <!-- Slide 6: The Product -->
+        <section id="slide-5" class="slide">
+            <div class="fade-in max-w-4xl text-center">
+                <h2 class="text-4xl md:text-6xl font-bold">This creates more than a dataset.</h2>
+                <p class="mt-8 text-3xl md:text-5xl font-bold text-cyan-400 leading-tight">It creates the Human Verification Layer for the AI Age.</p>
+                <p class="mt-8 text-lg md:text-xl text-gray-300">This community-powered, auditable data layer is the essential public utility needed to align AI, defend against deepfakes, and power a new generation of trusted commerce and media.</p>
+            </div>
+        </section>
+
+        <!-- Slide 7: The Invitation -->
+        <section id="slide-6" class="slide">
+            <div class="fade-in max-w-4xl text-center">
+                <h2 class="text-4xl md:text-6xl font-bold">An Invitation to Co-Create</h2>
+                <p class="mt-8 text-lg md:text-xl text-gray-300">We are inviting a foundational group of partners to shape this protocol from the ground up. This is an opportunity to co-author the whitepaper, define the governance, and build a public utility for digital trust.</p>
+                <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 text-white">
+                    <span class="bg-gray-800 p-3 rounded-lg">Protocol Design</span>
+                    <span class="bg-gray-800 p-3 rounded-lg">Economic Modeling</span>
+                    <span class="bg-gray-800 p-3 rounded-lg">AI Alignment</span>
+                    <span class="bg-gray-800 p-3 rounded-lg">Governance & Ethics</span>
+                </div>
+                <p class="mt-12 text-2xl font-bold">Let's build a more resilient, intelligent, and trusted world.</p>
+                <div class="mt-6 text-center">
+                    <a href="https://www.linkedin.com/in/abhinavsharm/" target="_blank" rel="noopener noreferrer" class="text-lg text-cyan-400 hover:text-white underline">Abhinav Sharma</a>
+                    <p class="text-md text-gray-400 mt-1">Ecosystem Architect | IIM MBA, NIT Engineer</p>
                 </div>
             </div>
+        </section>
+    </main>
 
-            <!-- Slide 3: The Cure -->
-            <div class="slide absolute w-full h-full opacity-0">
-                <div class="slide-content bg-black">
-                    <div class="fade-in max-w-4xl">
-                        <h2 class="text-4xl md:text-6xl font-bold text-cyan-400">The cure is Verifiable Context.</h2>
-                        <p class="mt-8 text-lg md:text-xl text-gray-300">An immune response requires specialized cells that can identify threats. For the internet, these cells are small, expert-led communities.</p>
-                        <p class="mt-6 text-2xl md:text-3xl font-bold text-white">We are building the economic engine to cultivate these high-integrity communities at scale.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 4: How It Works: The Flywheel of Trust (NEW) -->
-            <div class="slide absolute w-full h-full opacity-0">
-                <div class="slide-content bg-black">
-                    <div class="fade-in max-w-5xl">
-                        <h2 class="text-4xl md:text-6xl font-bold">The Protocol: A Flywheel of Trust</h2>
-                        <p class="mt-4 text-lg md:text-xl text-gray-400">A self-sustaining ecosystem that creates, structures, and funds verifiable context.</p>
-                        <div class="mt-12 flex flex-col md:flex-row items-center justify-center w-full gap-8 md:gap-4">
-                            <!-- Step 1: Verify -->
-                            <div class="flywheel-step">
-                                <div class="w-24 h-24 rounded-full bg-gray-900 border-2 border-cyan-400 flex items-center justify-center">
-                                    <svg class="w-12 h-12 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                </div>
-                                <h3 class="mt-4 text-xl font-bold">1. Verify</h3>
-                                <p class="mt-2 text-gray-400 max-w-xs">Expert communities are rewarded for fact-checking, labeling, and adding nuanced context to digital content.</p>
-                            </div>
-                            <div class="text-gray-600 text-4xl hidden md:block mx-4">&rarr;</div>
-                            <!-- Step 2: Structure -->
-                            <div class="flywheel-step">
-                                <div class="w-24 h-24 rounded-full bg-gray-900 border-2 border-cyan-400 flex items-center justify-center">
-                                    <svg class="w-12 h-12 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
-                                </div>
-                                <h3 class="mt-4 text-xl font-bold">2. Structure</h3>
-                                <p class="mt-2 text-gray-400 max-w-xs">This activity is structured into a real-time, transparent, and auditable data layer—the product.</p>
-                            </div>
-                            <div class="text-gray-600 text-4xl hidden md:block mx-4">&rarr;</div>
-                            <!-- Step 3: Fund -->
-                            <div class="flywheel-step">
-                                <div class="w-24 h-24 rounded-full bg-gray-900 border-2 border-cyan-400 flex items-center justify-center">
-                                    <svg class="w-12 h-12 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                                </div>
-                                <h3 class="mt-4 text-xl font-bold">3. Fund</h3>
-                                <p class="mt-2 text-gray-400 max-w-xs">Revenue from AI companies and platforms who access this data layer flows back to fund and grow the expert communities.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 5: The Economic Engine -->
-            <div class="slide absolute w-full h-full opacity-0">
-                <div class="slide-content bg-black">
-                    <div class="fade-in max-w-5xl">
-                        <h2 class="text-4xl md:text-6xl font-bold">Capitalizing on the Internet's Economic Asymmetry</h2>
-                        <p class="mt-4 text-lg md:text-xl text-gray-400">A fundamental inefficiency exists between where value is monetized and where expertise resides.</p>
-                        <div class="mt-10 grid md:grid-cols-2 gap-8 w-full">
-                            <div class="bg-gray-900 p-8 rounded-lg text-left">
-                                <h3 class="text-xl font-bold text-gray-400">Monetized Attention</h3>
-                                <p class="text-6xl font-black text-white mt-2">~$68</p>
-                                <p class="mt-2 text-gray-300">Is the average ad revenue per user (ARPU) in North America. This is where digital value is currently captured.</p>
-                            </div>
-                            <div class="bg-gray-900 p-8 rounded-lg text-left">
-                                <h3 class="text-xl font-bold text-gray-400">Undervalued Expertise</h3>
-                                <p class="text-6xl font-black text-white mt-2">$8-15<span class="text-4xl">/hr</span></p>
-                                <p class="mt-2 text-gray-300">Is the rate for elite, multilingual expertise from global talent hubs like India. This is where trust can be efficiently built.</p>
-                            </div>
-                        </div>
-                         <p class="mt-10 text-xl text-cyan-400 font-semibold">Our protocol creates a new global market, arbitraging the gap between where value is captured and where trust can be built.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 6: The Product -->
-            <div class="slide absolute w-full h-full opacity-0">
-                <div class="slide-content bg-black">
-                    <div class="fade-in max-w-4xl">
-                        <h2 class="text-4xl md:text-6xl font-bold">This creates more than a dataset.</h2>
-                        <p class="mt-8 text-3xl md:text-5xl font-bold text-cyan-400 leading-tight">It creates the Human Verification Layer for the AI Age.</p>
-                        <p class="mt-8 text-lg md:text-xl text-gray-300">This community-powered, auditable data layer is the essential public utility needed to align AI, defend against deepfakes, and power a new generation of trusted commerce and media.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 7: The Invitation (REVISED) -->
-            <div class="slide absolute w-full h-full opacity-0">
-                <div class="slide-content bg-black">
-                    <div class="fade-in max-w-4xl">
-                        <h2 class="text-4xl md:text-6xl font-bold">An Invitation to Co-Create</h2>
-                        <p class="mt-8 text-lg md:text-xl text-gray-300">We are inviting a foundational group of partners to shape this protocol from the ground up. This is an opportunity to co-author the whitepaper, define the governance, and build a public utility for digital trust.</p>
-                        <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 text-white">
-                            <span class="bg-gray-800 p-3 rounded">Protocol Design</span>
-                            <span class="bg-gray-800 p-3 rounded">Economic Modeling</span>
-                            <span class="bg-gray-800 p-3 rounded">AI Alignment</span>
-                            <span class="bg-gray-800 p-3 rounded">Governance & Ethics</span>
-                        </div>
-                        <p class="mt-12 text-2xl font-bold">Let's build a more resilient, intelligent, and trusted world.</p>
-                        <div class="mt-6 text-center">
-                             <a href="https://www.linkedin.com/in/abhinavsharm/" target="_blank" rel="noopener noreferrer" class="text-lg text-cyan-400 hover:text-white underline">
-                                Abhinav Sharma
-                            </a>
-                            <p class="text-md text-gray-400">Ecosystem Architect | IIM MBA, NIT Engineer</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Navigation & Indicator -->
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center space-x-6 z-10">
-            <button id="prevBtn" class="bg-gray-800 hover:bg-gray-700 p-3 rounded-full disabled:opacity-50">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-            </button>
-            <div id="slideIndicator" class="flex space-x-2"></div>
-            <button id="nextBtn" class="bg-gray-800 hover:bg-gray-700 p-3 rounded-full">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-            </button>
-        </div>
-    </div>
+    <!-- Navigation -->
+    <nav class="fixed bottom-8 left-1/2 -translate-x-1/2 flex items-center space-x-6 z-10">
+        <button id="prevBtn" class="bg-gray-800 hover:bg-gray-700 p-3 rounded-full disabled:opacity-50 transition-opacity">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        </button>
+        <div id="slideIndicator" class="flex space-x-3"></div>
+        <button id="nextBtn" class="bg-gray-800 hover:bg-gray-700 p-3 rounded-full transition-opacity">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </button>
+    </nav>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const slides = document.querySelectorAll('.slide');
+            const fadeInElements = document.querySelectorAll('.fade-in');
+            const totalSlides = slides.length;
+            let currentIndex = 0;
+
+            // Navigation Elements
             const prevBtn = document.getElementById('prevBtn');
             const nextBtn = document.getElementById('nextBtn');
             const slideIndicator = document.getElementById('slideIndicator');
-            let currentIndex = 0;
-            const totalSlides = slides.length;
 
-            slides.forEach((_, i) => {
-                const dot = document.createElement('div');
-                dot.classList.add('w-2.5', 'h-2.5', 'rounded-full', 'transition-colors', 'duration-300', 'cursor-pointer');
-                dot.addEventListener('click', () => goToSlide(i));
+            // Create navigation dots
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('button');
+                dot.classList.add('nav-dot', 'w-3', 'h-3', 'rounded-full', 'bg-gray-700', 'transition-all', 'duration-300');
+                dot.addEventListener('click', () => scrollToSlide(i));
                 slideIndicator.appendChild(dot);
-            });
-            const dots = slideIndicator.querySelectorAll('div');
+            }
+            const dots = slideIndicator.querySelectorAll('.nav-dot');
 
-            function goToSlide(index) {
+            // Function to scroll to a specific slide
+            function scrollToSlide(index) {
                 if (index < 0 || index >= totalSlides) return;
-                
-                slides[currentIndex].style.opacity = 0;
-                slides[currentIndex].style.zIndex = 0;
+                slides[index].scrollIntoView({ behavior: 'smooth' });
+            }
 
-                currentIndex = index;
-                
-                slides[currentIndex].style.opacity = 1;
-                slides[currentIndex].style.zIndex = 1;
-
+            // Update UI based on current slide
+            function updateNav() {
+                // Update dots
                 dots.forEach((dot, i) => {
-                    dot.classList.toggle('bg-cyan-400', i === currentIndex);
-                    dot.classList.toggle('bg-gray-700', i !== currentIndex);
+                    dot.classList.toggle('active', i === currentIndex);
                 });
-
+                // Update buttons
                 prevBtn.disabled = currentIndex === 0;
                 nextBtn.disabled = currentIndex === totalSlides - 1;
             }
 
-            nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
-            prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+            // Intersection Observer for fade-in animations and nav updates
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Add 'visible' class to the content for fade-in effect
+                        entry.target.querySelector('.fade-in').classList.add('visible');
+                        
+                        // Update the current index based on which slide is visible
+                        currentIndex = parseInt(entry.target.id.split('-')[1]);
+                        updateNav();
+                    }
+                });
+            }, { threshold: 0.6 }); // Trigger when 60% of the slide is visible
+
+            // Observe each slide
+            slides.forEach(slide => observer.observe(slide));
+
+            // Event Listeners for buttons and keys
+            nextBtn.addEventListener('click', () => scrollToSlide(currentIndex + 1));
+            prevBtn.addEventListener('click', () => scrollToSlide(currentIndex - 1));
+            
             document.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowRight') goToSlide(currentIndex + 1);
-                if (e.key === 'ArrowLeft') goToSlide(currentIndex - 1);
+                if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    scrollToSlide(currentIndex + 1);
+                }
+                if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    scrollToSlide(currentIndex - 1);
+                }
             });
 
-            goToSlide(0);
+            // Initial state
+            updateNav();
         });
     </script>
 </body>
