@@ -65,9 +65,9 @@
         }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-        /* Navigation and Footer styling */
+        /* Navigation styling */
         .nav-dot.active { background-color: #22d3ee; transform: scale(1.5); }
-        nav button:focus-visible, footer a:focus-visible {
+        nav button:focus-visible {
             outline: 2px solid #22d3ee;
             outline-offset: 2px;
         }
@@ -115,7 +115,7 @@
         <!-- Slide 4: How It Works: The Flywheel of Trust -->
         <section id="slide-3" class="slide-section">
             <div class="slide-content">
-                <div class="fade-in max-w-5xl text-center mx-auto">
+                <div class="fade-in max-w-5xl text-center mx-auto my-auto">
                     <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">The Protocol: A Flywheel of Trust</h2>
                     <p class="text-base sm:text-lg mt-4 text-gray-400">A self-sustaining ecosystem that creates, structures, and funds verifiable context.</p>
                     <div class="mt-12 w-full flex flex-col md:flex-row items-center md:items-start justify-center gap-8 md:gap-4">
@@ -132,14 +132,10 @@
         <!-- Slide 5: The Economic Engine -->
         <section id="slide-4" class="slide-section">
             <div class="slide-content">
-                <!-- SURGICAL FIX: The changes are only inside this div -->
-                <div class="fade-in max-w-5xl text-center mx-auto">
-                    <!-- FIX 1: More adaptive headline size -->
+                <div class="fade-in max-w-5xl text-center mx-auto my-auto">
                     <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold">Capitalizing on the Internet's Economic Asymmetry</h2>
                     <p class="text-base sm:text-lg mt-4 text-gray-400">A fundamental inefficiency exists between where value is monetized and where expertise resides.</p>
-                    <!-- FIX 2: Reduced top margin on mobile -->
                     <div class="mt-8 md:mt-10 grid md:grid-cols-2 gap-6 md:gap-8 w-full">
-                        <!-- FIX 3: More compact padding and text sizes -->
                         <div class="bg-gray-900 p-6 rounded-lg text-left">
                             <h3 class="text-lg font-bold text-gray-400">Monetized Attention</h3>
                             <p class="text-4xl sm:text-5xl font-black text-white mt-2">~$68</p>
@@ -151,7 +147,6 @@
                             <p class="mt-2 text-gray-300 text-sm sm:text-base">Is the rate for elite, multilingual expertise from global talent hubs like India. This is where trust can be built.</p>
                         </div>
                     </div>
-                    <!-- FIX 4: Reduced top margin on mobile -->
                     <p class="text-lg sm:text-xl mt-8 md:mt-10 text-cyan-400 font-semibold">Our protocol creates a new global market, arbitraging the gap between where value is captured and where trust can be built.</p>
                 </div>
             </div>
@@ -188,14 +183,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- Footer as the final snap point -->
-        <footer id="slide-7" class="slide-section text-center text-gray-500">
-            <div class="my-auto">
-                <p>&copy; 2024 Uma.land. All rights reserved.</p>
-                <a href="#slide-0" class="mt-4 inline-block text-cyan-400 hover:text-white underline">Back to Top</a>
-            </div>
-        </footer>
     </main>
 
     <!-- Navigation -->
